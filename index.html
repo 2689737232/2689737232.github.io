@@ -159,6 +159,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js线程问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/js线程问题/">js线程问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/js线程问题/" class="archive-article-date">
+  	<time datetime="2019-08-08T12:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js是单线程语言"><a href="#js是单线程语言" class="headerlink" title="js是单线程语言"></a>js是单线程语言</h2><p>这个单线程是有影响的。比如上一句代码没有执行到，那么下一句就不会执行，浏览器就会显示一直在加载。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0;i&lt;10;i++)&#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;yes&quot;);</span><br><span class="line">打印顺序就是for循环走完后，再打印yes</span><br></pre></td></tr></table></figure></p>
+<p>但是在开发中是有一些耗时操作的，比如ajax请求，定时器等等。这个时候出现了异步模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;我是定时器一号&quot;);</span><br><span class="line">&#125;,200);</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;我是定时器二号&quot;);</span><br><span class="line">&#125;,100);</span><br><span class="line">console.log(&quot;yes&quot;);</span><br><span class="line"></span><br><span class="line">setTimeout是异步操作，这些耗时操作不是在js主线程里面执行，而是放到了任务队列（可以理解为是异步线程）里面去。等到主线程执行完后再来执行任务队列里面的事情，并且是挨个处理。</span><br><span class="line">所以这里打印的是 yes  我是定时器二号  我是定时器一号</span><br><span class="line"></span><br><span class="line">在js中，定时器 ajax请求 事件 回调函数 发布订阅模式 es6中的Promise、Generrator等等都是异步操作。</span><br></pre></td></tr></table></figure></p>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>相当于一个列表，里面的任务又分为宏任务、微任务。<br>任务队列的读取方式：先进先出 后进后出。</p>
+<h3 id="宏任务-task-macrotask"><a href="#宏任务-task-macrotask" class="headerlink" title="宏任务 task(macrotask)"></a>宏任务 task(macrotask)</h3><p> 1.DOM操作 2.定时器 3.ajax…</p>
+<h3 id="微任务-task-macrotask"><a href="#微任务-task-macrotask" class="headerlink" title="微任务 task(macrotask)"></a>微任务 task(macrotask)</h3><p> 1.Promise 2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">后放入宏任务中</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;我是定时器一号&quot;);</span><br><span class="line">&#125;,200);</span><br><span class="line"></span><br><span class="line">先放入宏任务中</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;我是定时器二号&quot;);</span><br><span class="line">&#125;,100);</span><br><span class="line"></span><br><span class="line">放入call stack（函数执行栈，代码执行放入里面）中的Global EC（函数执行上下文）中。</span><br><span class="line">console.log(&quot;yes&quot;);</span><br><span class="line"></span><br><span class="line">函数执行是在Global EC里执行</span><br><span class="line">在Global EC 只有console.log(&quot;yes&quot;);  执行，</span><br><span class="line">然后先看微任务中有没有。有的话将任务加到Global EC中先后执行再弹出call stack，看完微任务后看宏任务，再添加执行。</span><br></pre></td></tr></table></figure></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>例子1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;定时器1&quot;);</span><br><span class="line">&#125;,200);</span><br><span class="line"></span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;定时器2&quot;);</span><br><span class="line">&#125;,100);</span><br><span class="line"></span><br><span class="line">es6中的Promise</span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">    console.log(&quot;Promise1&quot;);   </span><br><span class="line">    resolve();</span><br><span class="line">    console.log(&quot;Promise2&quot;);  </span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">    console.log(&quot;then&quot;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(&quot;yes&quot;);</span><br><span class="line"></span><br><span class="line">最后打印顺序为    Promise1 Promise2 yes then 定时器2 定时器1</span><br></pre></td></tr></table></figure></p>
+<p>例子2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;1&quot;)</span><br><span class="line">&#125;,100)</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">  console.log(2)</span><br><span class="line">  for(var i = 0; i &lt; 601;i++)&#123;</span><br><span class="line">      i === 600 &amp;&amp; resolve(3);</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(4)</span><br><span class="line">&#125;).then(function(val)&#123;</span><br><span class="line">  console.log(val)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(5)</span><br><span class="line">最后打印顺序为 24531</span><br></pre></td></tr></table></figure></p>
+<h2 id="利用任务队列解决问题"><a href="#利用任务队列解决问题" class="headerlink" title="利用任务队列解决问题"></a>利用任务队列解决问题</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>js是单线程语言，异步操作放到任务队列里面。而任务队列分为宏任务和微任务。<br>最后执行先执行Global EC里面的，然后是微任务里面的，最后是宏任务里面的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js基础 线程 学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/08/js线程问题/">全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo-server无效" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -328,6 +409,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">采坑日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js基础 线程 学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
