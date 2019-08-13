@@ -4,10 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo server无效, zz的blog">
-    <meta name="description" content="
- 因为hexo基于node 没有安装依赖需要执行 npm install npm install 会去找项目文件夹中的 package.json 这个文件安装里面的配置
-">
+    <meta name="keywords" content="ES6 箭头函数, zz的blog">
+    <meta name="description" content="ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hexo server无效 | zz的blog</title>
+    <title>ES6 箭头函数 | zz的blog</title>
     <link rel="icon" type="image/png" href="/兔子.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -199,13 +197,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hexo server无效
+                        ES6 箭头函数
                     </div>
                 </div>
             </div>
@@ -227,8 +225,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/采坑日记/" target="_blank">
-                                <span class="chip bg-color">采坑日记</span>
+                            <a href="/tags/ES6-箭头函数/" target="_blank">
+                                <span class="chip bg-color">ES6 箭头函数</span>
                             </a>
                         
                     </div>
@@ -239,8 +237,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                Markdown
+                            <a href="/categories/ES6/" class="post-category" target="_blank">
+                                ES6
                             </a>
                         
                     </div>
@@ -251,7 +249,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-08
+                    2019-08-13
                 </div>
 
                 
@@ -267,8 +265,89 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="./ckrj.jpg" alt="采坑日记" title="采坑日记"></p>
-<p> 因为hexo基于node 没有安装依赖需要执行 <code>npm install</code><br> <code>npm install</code> 会去找项目文件夹中的 <code>package.json</code> 这个文件安装里面的配置</p>
+                <p><font face="黑体" color="green" size="8">ES6箭头函数</font><br><br><br> ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<h3 id="箭头函数的特点"><a href="#箭头函数的特点" class="headerlink" title="箭头函数的特点"></a>箭头函数的特点</h3><pre><code> 1 不能加function关键字
+ 2 只能作为函数使用、没有原型、不能new
+ 3 参数不能重复命名
+ 4 arguments 和 this 由定义时的外层最接近一层的非箭头函数决定
+</code></pre><h3 id="箭头函数的写法"><a href="#箭头函数的写法" class="headerlink" title="箭头函数的写法"></a>箭头函数的写法</h3><pre class=" language-JavaScript"><code class="language-JavaScript">  let func = (param1,param2) => {
+      let sum = param1 + param2;
+      return sum;
+  }
+</code></pre>
+<h3 id="与ES5函数写法的不同"><a href="#与ES5函数写法的不同" class="headerlink" title="与ES5函数写法的不同"></a>与ES5函数写法的不同</h3><pre class=" language-JavaScript"><code class="language-JavaScript">    function sum(a, b) {
+        return a + b;
+    }
+
+    let sum = (a,b) =>{
+        return a + b;
+    }
+    //如果方法体里面只有return ...;可以去掉{}去掉return
+    let sum = (a,b) => a + b
+
+    //当要返回一个对象的时候
+    let obj = (a,b) => {_a:a,_b:b}   //这样写不可以在es6中 {} 为语句块
+    let obj = (a,b) => ( {_a:a,_b:b} )  //需要加括号转成表达式
+
+    //连续的返回
+    let sum = (x) => (y) => (z) => x + y + z;
+    console.log(sum(1)(2)(3));
+</code></pre>
+<h3 id="箭头函数中this的指向和arguments问题"><a href="#箭头函数中this的指向和arguments问题" class="headerlink" title="箭头函数中this的指向和arguments问题"></a>箭头函数中this的指向和arguments问题</h3><h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-箭头函数中使用的this，arguments。是由箭头函数定义时-外层最接近的非箭头函数里的this和arguments决定"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-箭头函数中使用的this，arguments。是由箭头函数定义时-外层最接近的非箭头函数里的this和arguments决定" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箭头函数中使用的this，arguments。是由箭头函数定义时,外层最接近的非箭头函数里的this和arguments决定"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箭头函数中使用的this，arguments。是由<font face="黑体" color="#c24106" size="4">箭头函数定义时,外层最接近的非箭头函数里的this和arguments决定</font></h4><pre class=" language-JavaScript"><code class="language-JavaScript">   //这里outerFunc在window下定义
+   function outerFunc(a,b){
+       let innerFunc = () =>{
+           console.log(arguments[0], arguments[1], this);
+       }
+       innerFunc();
+   }
+   outerFunc(1,2);   //打印结果为： 1  2  window
+</code></pre>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-如果在外面再套一层"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-如果在外面再套一层" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果在外面再套一层"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果在外面再套一层</h4><pre class=" language-JavaScript"><code class="language-JavaScript">    let obj = {
+    }
+
+    function wrapFunc(c, d) {
+        function outerFunc(a, b) {
+            let innerFunc = () => {
+                console.log(arguments[0], arguments[1], this);
+            }
+            //给obj添加方法
+            obj._innerFunc = innerFunc;
+        }
+        outerFunc(1,2);
+    }
+
+    wrapFunc(3,4);
+    //执行箭头函数
+    obj._innerFunc(5,6);   结果为 1 2 window还是箭头函数定义时outerFunc(a,b)的this和arguments
+</code></pre>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-再来"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-再来" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;再来"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;再来</h4><pre class=" language-JavaScript"><code class="language-JavaScript">   var obj = {
+        a : function(){
+            console.log(this);
+        },
+        b : () => console.log(this)
+    }
+    obj.a();
+    obj.b();
+    最后结果为 obj  window
+</code></pre>
+<h3 id="尾调用-递归（优化过程）"><a href="#尾调用-递归（优化过程）" class="headerlink" title="尾调用 递归（优化过程）"></a>尾调用 递归（优化过程）</h3><pre class=" language-JavaScript"><code class="language-JavaScript">  //p = 1是默认值操作
+  a = (n,p=1) => {
+    if(n <= 1){
+        return 1 * p;
+    }
+    let s = n * p;
+    return a(n-1,s);
+   }
+
+   let sum = a(3)
+   console.llog(sum) 结果为6
+</code></pre>
+<h3 id="利用箭头函数对数组进行操作"><a href="#利用箭头函数对数组进行操作" class="headerlink" title="利用箭头函数对数组进行操作"></a>利用箭头函数对数组进行操作</h3><pre class=" language-JavaScript"><code class="language-JavaScript">     let arr = [25, 64, 45, 123, 456, 845, 78];
+     //相对于es5来说简单了不少
+     console.log(arr.map((ele) => ele < 50));
+     console.log(arr.filter((ele) => ele > 50));
+
+</code></pre>
 
             </div>
             <hr/>
@@ -427,9 +506,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《hexo server无效》
+                    《ES6 箭头函数》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/08/hexo-server-wu-xiao/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/13/es6-jian-tou-han-shu/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zz
             </a> is licensed under a
@@ -469,9 +548,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/08/13/es6-jian-tou-han-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6 箭头函数">
+                        
+                        <span class="card-title">ES6 箭头函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ES6/" class="post-category" target="_blank">
+                                    ES6
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES6-箭头函数/" target="_blank">
+                        <span class="chip bg-color">ES6 箭头函数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/08/08/js-xian-cheng-wen-ti/">
                     <div class="card-image">
@@ -490,9 +620,9 @@ for(var i = 0;i
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -506,56 +636,6 @@ for(var i = 0;i
                     
                     <a href="/tags/js基础-线程-学习笔记/" target="_blank">
                         <span class="chip bg-color">js基础 线程 学习笔记</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/08/hexo-server-wu-xiao/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo server无效">
-                        
-                        <span class="card-title">hexo server无效</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            hexo博客搭建的坑
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/采坑日记/" target="_blank">
-                        <span class="chip bg-color">采坑日记</span>
                     </a>
                     
                 </div>

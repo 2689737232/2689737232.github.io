@@ -6,10 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="js线程问题, zz的blog">
     <meta name="description" content="js是单线程语言这个单线程是有影响的。比如上一句代码没有执行到，那么下一句就不会执行，浏览器就会显示一直在加载。
-for(var i = 0;i&amp;lt;10;i++){
-    console.log(i);
-}
-console.log(&amp;">
+for(var i = 0;i">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +29,7 @@ console.log(&amp;">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css"><script src="/js/prism.js"></script></head>
 
 
 <body>
@@ -350,73 +347,77 @@ console.log(&amp;">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="js是单线程语言"><a href="#js是单线程语言" class="headerlink" title="js是单线程语言"></a>js是单线程语言</h2><p>这个单线程是有影响的。比如上一句代码没有执行到，那么下一句就不会执行，浏览器就会显示一直在加载。</p>
-<pre><code>for(var i = 0;i&lt;10;i++){
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">for(var i = 0;i<10;i++){
     console.log(i);
 }
-console.log(&quot;yes&quot;);
+console.log("yes");
 打印顺序就是for循环走完后，再打印yes
-</code></pre><p>但是在开发中是有一些耗时操作的，比如ajax请求，定时器等等。这个时候出现了异步模式。</p>
-<pre><code>setTimeout(function(){
-    console.log(&quot;我是定时器一号&quot;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是在开发中是有一些耗时操作的，比如ajax请求，定时器等等。这个时候出现了异步模式。</p>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+    console.log("我是定时器一号");
 },200);
 setTimeout(function(){
-    console.log(&quot;我是定时器二号&quot;);
+    console.log("我是定时器二号");
 },100);
-console.log(&quot;yes&quot;);
+console.log("yes");
 
 setTimeout是异步操作，这些耗时操作不是在js主线程里面执行，而是放到了任务队列（可以理解为是异步线程）里面去。等到主线程执行完后再来执行任务队列里面的事情，并且是挨个处理。
 所以这里打印的是 yes  我是定时器二号  我是定时器一号
 
 在js中，定时器 ajax请求 事件 回调函数 发布订阅模式 es6中的Promise、Generrator等等都是异步操作。
-</code></pre><h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>相当于一个列表，里面的任务又分为宏任务、微任务。<br>任务队列的读取方式：先进先出 后进后出。</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>相当于一个列表，里面的任务又分为宏任务、微任务。<br>任务队列的读取方式：先进先出 后进后出。</p>
 <h3 id="宏任务-task-macrotask"><a href="#宏任务-task-macrotask" class="headerlink" title="宏任务 task(macrotask)"></a>宏任务 task(macrotask)</h3><p> 1.DOM操作 2.定时器 3.ajax…</p>
 <h3 id="微任务-task-macrotask"><a href="#微任务-task-macrotask" class="headerlink" title="微任务 task(macrotask)"></a>微任务 task(macrotask)</h3><p> 1.Promise 2.</p>
-<pre><code>后放入宏任务中
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">后放入宏任务中
 setTimeout(function(){
-    console.log(&quot;我是定时器一号&quot;);
+    console.log("我是定时器一号");
 },200);
 
 先放入宏任务中
 setTimeout(function(){
-    console.log(&quot;我是定时器二号&quot;);
+    console.log("我是定时器二号");
 },100);
 
 放入call stack（函数执行栈，代码执行放入里面）中的Global EC（函数执行上下文）中。
-console.log(&quot;yes&quot;);
+console.log("yes");
 
 函数执行是在Global EC里执行
-在Global EC 只有console.log(&quot;yes&quot;);  执行，
+在Global EC 只有console.log("yes");  执行，
 然后先看微任务中有没有。有的话将任务加到Global EC中先后执行再弹出call stack，看完微任务后看宏任务，再添加执行。
-</code></pre><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>例子1</p>
-<pre><code>setTimeout(function(){
-    console.log(&quot;定时器1&quot;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>例子1</p>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+    console.log("定时器1");
 },200);
 
 setTimeout(function(){
-    console.log(&quot;定时器2&quot;);
+    console.log("定时器2");
 },100);
 
 es6中的Promise
 new Promise(function(resolve){
-    console.log(&quot;Promise1&quot;);   
+    console.log("Promise1");   
     resolve();
-    console.log(&quot;Promise2&quot;);  
+    console.log("Promise2");  
 }).then(function(){
-    console.log(&quot;then&quot;);
+    console.log("then");
 })
 
-console.log(&quot;yes&quot;);
+console.log("yes");
 
 最后打印顺序为    Promise1 Promise2 yes then 定时器2 定时器1
-</code></pre><p>例子2</p>
-<pre><code>setTimeout(function(){
-    console.log(&quot;1&quot;)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例子2</p>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+    console.log("1")
 },100)
 
 new Promise(function(resolve){
   console.log(2)
-  for(var i = 0; i &lt; 601;i++){
-      i === 600 &amp;&amp; resolve(3);
+  for(var i = 0; i < 601;i++){
+      i === 600 && resolve(3);
   }
   console.log(4)
 }).then(function(val){
@@ -425,7 +426,8 @@ new Promise(function(resolve){
 
 console.log(5)
 最后打印顺序为 24531
-</code></pre><h2 id="利用任务队列解决问题"><a href="#利用任务队列解决问题" class="headerlink" title="利用任务队列解决问题"></a>利用任务队列解决问题</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>js是单线程语言，异步操作放到任务队列里面。而任务队列分为宏任务和微任务。<br>最后执行先执行Global EC里面的，然后是微任务里面的，最后是宏任务里面的。</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="利用任务队列解决问题"><a href="#利用任务队列解决问题" class="headerlink" title="利用任务队列解决问题"></a>利用任务队列解决问题</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>js是单线程语言，异步操作放到任务队列里面。而任务队列分为宏任务和微任务。<br>最后执行先执行Global EC里面的，然后是微任务里面的，最后是宏任务里面的。</p>
 
             </div>
             <hr/>
@@ -626,48 +628,46 @@ console.log(5)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/08/08/js-xian-cheng-wen-ti/">
+                <a href="/2019/08/13/es6-jian-tou-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="js线程问题">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6 箭头函数">
                         
-                        <span class="card-title">js线程问题</span>
+                        <span class="card-title">ES6 箭头函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            js是单线程语言这个单线程是有影响的。比如上一句代码没有执行到，那么下一句就不会执行，浏览器就会显示一直在加载。
-for(var i = 0;i&lt;10;i++){
-    console.log(i);
-}
-console.log(&
+                            ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-13
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            zz
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ES6/" class="post-category" target="_blank">
+                                    ES6
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js基础-线程-学习笔记/" target="_blank">
-                        <span class="chip bg-color">js基础 线程 学习笔记</span>
+                    <a href="/tags/ES6-箭头函数/" target="_blank">
+                        <span class="chip bg-color">ES6 箭头函数</span>
                     </a>
                     
                 </div>
@@ -684,7 +684,8 @@ console.log(&
                 <a href="/2019/08/08/hexo-server-wu-xiao/">
                     <div class="card-image">
                         
-                        <img src="/source/img/ac.gif" class="responsive-img" alt="hexo server无效">
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo server无效">
                         
                         <span class="card-title">hexo server无效</span>
                     </div>
