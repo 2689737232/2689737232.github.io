@@ -347,14 +347,14 @@ for(var i = 0;i">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="js是单线程语言"><a href="#js是单线程语言" class="headerlink" title="js是单线程语言"></a>js是单线程语言</h2><p>这个单线程是有影响的。比如上一句代码没有执行到，那么下一句就不会执行，浏览器就会显示一直在加载。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">for(var i = 0;i<10;i++){
+<pre class=" language-JavaScript"><code class="language-JavaScript">for(var i = 0;i<10;i++){
     console.log(i);
 }
 console.log("yes");
 打印顺序就是for循环走完后，再打印yes
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>但是在开发中是有一些耗时操作的，比如ajax请求，定时器等等。这个时候出现了异步模式。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+<pre class=" language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
     console.log("我是定时器一号");
 },200);
 setTimeout(function(){
@@ -366,11 +366,11 @@ setTimeout是异步操作，这些耗时操作不是在js主线程里面执行�
 所以这里打印的是 yes  我是定时器二号  我是定时器一号
 
 在js中，定时器 ajax请求 事件 回调函数 发布订阅模式 es6中的Promise、Generrator等等都是异步操作。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>相当于一个列表，里面的任务又分为宏任务、微任务。<br>任务队列的读取方式：先进先出 后进后出。</p>
 <h3 id="宏任务-task-macrotask"><a href="#宏任务-task-macrotask" class="headerlink" title="宏任务 task(macrotask)"></a>宏任务 task(macrotask)</h3><p> 1.DOM操作 2.定时器 3.ajax…</p>
 <h3 id="微任务-task-macrotask"><a href="#微任务-task-macrotask" class="headerlink" title="微任务 task(macrotask)"></a>微任务 task(macrotask)</h3><p> 1.Promise 2.</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">后放入宏任务中
+<pre class=" language-JavaScript"><code class="language-JavaScript">后放入宏任务中
 setTimeout(function(){
     console.log("我是定时器一号");
 },200);
@@ -386,9 +386,9 @@ console.log("yes");
 函数执行是在Global EC里执行
 在Global EC 只有console.log("yes");  执行，
 然后先看微任务中有没有。有的话将任务加到Global EC中先后执行再弹出call stack，看完微任务后看宏任务，再添加执行。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>例子1</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+<pre class=" language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
     console.log("定时器1");
 },200);
 
@@ -408,9 +408,9 @@ new Promise(function(resolve){
 console.log("yes");
 
 最后打印顺序为    Promise1 Promise2 yes then 定时器2 定时器1
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>例子2</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
+<pre class=" language-JavaScript"><code class="language-JavaScript">setTimeout(function(){
     console.log("1")
 },100)
 
@@ -426,7 +426,7 @@ new Promise(function(resolve){
 
 console.log(5)
 最后打印顺序为 24531
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="利用任务队列解决问题"><a href="#利用任务队列解决问题" class="headerlink" title="利用任务队列解决问题"></a>利用任务队列解决问题</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>js是单线程语言，异步操作放到任务队列里面。而任务队列分为宏任务和微任务。<br>最后执行先执行Global EC里面的，然后是微任务里面的，最后是宏任务里面的。</p>
 
             </div>
@@ -793,7 +793,7 @@ console.log(5)
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4,h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -805,7 +805,7 @@ console.log(5)
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4,h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
