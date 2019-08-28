@@ -25,6 +25,10 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
         
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -328,6 +332,28 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/6.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">ES6 箭头函数</div>
+                    <div class="description center-align">
+                    
+                        ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/08/13/es6-jian-tou-han-shu/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/20.jpg');">
         <div class="container">
             <div class="row">
@@ -341,28 +367,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/08/22/vue-ji-chu/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>Read more
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/6.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">ES6 箭头函数</div>
-                    <div class="description center-align">
-                    
-                        ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/08/13/es6-jian-tou-han-shu/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>Read more
                         </a>
                     </div>
@@ -470,7 +474,7 @@ $(function () {
         volume: Number('0.7'),
         listFolded: 'false' === 'true',
         listMaxHeight: '',
-        audio: JSON.parse('[{"name":"NOT INSANE","artist":"L4WUDU","url":"https://m801.music.126.net/20190813232148/b647e73979be12ba82ec31449e736df2/jdyyaac/010b/0f0f/565b/6a00a8ca268e9712610ba16412b6a415.m4a","cover":"http://p1.music.126.net/5qM57WFkQ-yt_3TQt3FODA==/109951163599188539.jpg?param=130y130"},{"name":"太阳照常升起","artist":"久石譲","url":"https://m801.music.126.net/20190809153438/e87097382defe22a134d7b572a812e90/jdyyaac/025b/510c/515a/516bb90ee1ff8bc1f7b9f06c243398a7.m4a","cover":"http://p1.music.126.net/drqGdK7zgW7B7IFl4lWpoQ==/109951163369835547.jpg?param=130y130"}]')
+        audio: JSON.parse('[{"name":"NOT INSANE","artist":"L4WUDU","url":"https://nj02cm01.baidupcs.com/file/6a00a8ca268e9712610ba16412b6a415?bkt=en-43ea5360a23c0e207d13d3ddc7fe67d07268633ad7f68a565652c4c283ff3cb99d7d9053d7ff9fe1b51d5c5021a018a31042fc5ba93095c91ddc66c13104fab5&fid=2520579851-250528-968744505680615&time=1566998583&sign=FDTAXGERLQBHSKfW-DCb740ccc5511e5e8fedcff06b081203-Z569WqyR4q3YseG2mQfNoVZjjrc%3D&to=88&size=1790917&sta_dx=1790917&sta_cs=0&sta_ft=m4a&sta_ct=0&sta_mt=0&fm2=MH%2CYangquan%2CAnywhere%2C%2Cchongqing%2Ccmnet&ctime=1566998578&mtime=1566998578&resv0=cdnback&resv1=0&resv2=&resv3=&vuk=2520579851&iv=0&htype=&randtype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-ea875512b44f3ab108f468bb041d0853d2b0b996092b32e3664cc5a81fe2f1531d4fb8af22ffa76b3ebd9bf2777d24cd79188905d6c789af305a5e1275657320&sl=76480590&expires=8h&rt=pr&r=906494004&vbdid=623829230&fin=NOT+INSANE.m4a&fn=NOT+INSANE.m4a&rtype=1&dp-logid=5563749677325558873&dp-callid=0.1&hps=1&tsl=80&csl=80&csign=F3eAIMcOM0%2FTT%2FswP73cFrHT3Ds%3D&so=0&ut=6&uter=4&serv=0&uc=482993123&ti=ff2e4b7b701c777407d2a9731234b3588330940b8003df6d&by=themis","cover":"http://p1.music.126.net/5qM57WFkQ-yt_3TQt3FODA==/109951163599188539.jpg?param=130y130"},{"name":"Love Song","artist":"L4WUDU","url":"https://m10.music.126.net/20190828215012/267dcde03a20d3bced7d93b212f4a8b2/ymusic/5452/0f52/070f/c8f29b18e488aefc27170e4e133742e9.mp3","cover":"http://p2.music.126.net/9SU5cKZl0hvEKW6qtHrNmw==/109951163992455022.jpg?param=130y130"}]')
     });
 });
 </script>
@@ -513,6 +517,27 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/ES6/" class="category" target="_blank">ES6</a>
+                    
+                </div>
+                <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank">
+                    <h3 class="post-title">ES6 箭头函数</h3>
+                </a>
+                <p class="post-description">ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式</p>
+                <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/20.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -526,27 +551,6 @@ $(function () {
                 <p class="post-description">为什么要用vue？  因为vue的性能好，数据视图分离的MVVM框架。
 为什么操作DOM会消耗性能  操作DOM是非常消耗性能的。  DOM</p>
                 <a href="/2019/08/22/vue-ji-chu/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/ES6/" class="category" target="_blank">ES6</a>
-                    
-                </div>
-                <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank">
-                    <h3 class="post-title">ES6 箭头函数</h3>
-                </a>
-                <p class="post-description">ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式</p>
-                <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
