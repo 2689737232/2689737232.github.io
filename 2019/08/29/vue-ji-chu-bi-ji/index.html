@@ -5,13 +5,13 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="VUE基础 笔记, zz的blog">
-    <meta name="description" content="VUE基础  数据绑定渲染对对象和数组的渲染时&amp;lt;div id=&#34;app&#34;&gt;
+    <meta name="description" content="VUE基础  实例方法对对象和数组的渲染时&amp;lt;div id=&#34;app&#34;&gt;
     {{arr}}
 &amp;lt;/div&gt;
 var app = new Vue({
         el: &#34;#app&#34;,
         data: {
- ">
+   ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -275,7 +275,7 @@ var app = new Vue({
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="VUE基础-数据绑定渲染"><a href="#VUE基础-数据绑定渲染" class="headerlink" title="VUE基础  数据绑定渲染"></a>VUE基础  数据绑定渲染</h2><h3 id="对对象和数组的渲染时"><a href="#对对象和数组的渲染时" class="headerlink" title="对对象和数组的渲染时"></a>对对象和数组的渲染时</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+                <h2 id="VUE基础-实例方法"><a href="#VUE基础-实例方法" class="headerlink" title="VUE基础  实例方法"></a>VUE基础  实例方法</h2><h3 id="对对象和数组的渲染时"><a href="#对对象和数组的渲染时" class="headerlink" title="对对象和数组的渲染时"></a>对对象和数组的渲染时</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
     <span class="token punctuation">{</span><span class="token punctuation">{</span>arr<span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -394,6 +394,25 @@ app<span class="token punctuation">.</span><span class="token function">$nextTic
 
 </code></pre>
 <p><img src="./image/$nextTick.JPG" alt="$el"></p>
+<h3 id="mount"><a href="#mount" class="headerlink" title="$mount"></a>$mount</h3><p>挂载方法，在实例化一个vue对象时，可以不用写el。<br>在获取这个对象的时候通过$mount添加</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//el: "#app",</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
+        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+            b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+            c<span class="token punctuation">:</span> <span class="token string">"c"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
 
             </div>
             <hr/>
@@ -611,13 +630,13 @@ app<span class="token punctuation">.</span><span class="token function">$nextTic
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VUE基础  数据绑定渲染对对象和数组的渲染时&lt;div id="app">
+                            VUE基础  实例方法对对象和数组的渲染时&lt;div id="app">
     {{arr}}
 &lt;/div>
 var app = new Vue({
         el: "#app",
         data: {
- 
+   
                         
                     </div>
                     <div class="publish-info">
