@@ -4,14 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="VUE基础 笔记, zz的blog">
-    <meta name="description" content="VUE基础  实例方法对对象和数组的渲染时&amp;lt;div id=&#34;app&#34;&gt;
-    {{arr}}
-&amp;lt;/div&gt;
-var app = new Vue({
-        el: &#34;#app&#34;,
-        data: {
-   ">
+    <meta name="keywords" content="VUE指令2, zz的blog">
+    <meta name="description" content="v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” javascript
+&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;
+    &amp;lt;img v-bind:src=&amp;quot;img&amp;quo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ var app = new Vue({
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>VUE基础 笔记 | zz的blog</title>
+    <title>VUE指令2 | zz的blog</title>
     <link rel="icon" type="image/png" href="/兔子.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -207,13 +203,13 @@ var app = new Vue({
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        VUE基础 笔记
+                        VUE指令2
                     </div>
                 </div>
             </div>
@@ -259,7 +255,7 @@ var app = new Vue({
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-29
+                    2019-08-30
                 </div>
 
                 
@@ -275,143 +271,76 @@ var app = new Vue({
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="VUE基础-实例方法"><a href="#VUE基础-实例方法" class="headerlink" title="VUE基础  实例方法"></a>VUE基础  实例方法</h2><h3 id="对对象和数组的渲染时"><a href="#对对象和数组的渲染时" class="headerlink" title="对对象和数组的渲染时"></a>对对象和数组的渲染时</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>arr<span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-            arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-                b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-                c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>如果–arr.length，页面是不会进行刷新渲染。<br><img src="./image/长度操作.JPG" alt="操作长度"></p>
-<p>如果通过数组的下标操作也不会改变。<br><img src="./image/下标操作.JPG" alt="操作长度"></p>
-<p>如果使用了一个对象没有的属性值，会返回undefined。在视图中不会显示。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>yes<span class="token punctuation">}</span><span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">//没有这个属性值，不显示</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-            arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-                b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-                c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>     
-</code></pre>
-<p>如果再添加上这个值的话，页面上是不会渲染的。<br><img src="./image/对象操作.JPG" alt="操作长度"></p>
-<h3 id="针对上面的情况可以使用-VUE的-set解决"><a href="#针对上面的情况可以使用-VUE的-set解决" class="headerlink" title="针对上面的情况可以使用 VUE的$set解决"></a>针对上面的情况可以使用 VUE的$set解决</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>arr<span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-            arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-                b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-                c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>        
-</code></pre>
-<p> <img src="./image/$set.JPG" alt="操作长度">  </p>
-<h3 id="el"><a href="#el" class="headerlink" title="$el"></a>$el</h3><p> 通过Vue实例.$el获取操作的元素。<br> app.$el 相当于 document.getElementById(‘app’) </p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-            b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-            c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>$el<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-</code></pre>
-<p> <img src="./image/$el.JPG" alt="$el"></p>
-<p>更改数据，然后打印。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-            b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-            c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>$el<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token string">"aaaa"</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token string">"bbbb"</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token string">"cccc"</span><span class="token punctuation">;</span>
-</code></pre>
-<p>页面上数据已经更改但是，打印的却不一样。<br><img src="./image/$el2.JPG" alt="$el"><br>因为VUE在数据的渲染上面是，异步操作。可利用定时器等操作查看</p>
-<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h3><p>这个方法是在数据渲染完成后，触发这个方法。接受一个参数</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-            b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-            c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token string">"aaaa"</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token string">"bbbb"</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span>obj<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token string">"cccc"</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>$el<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <h3 id="v-bind-类名-src等数据绑定的时候"><a href="#v-bind-类名-src等数据绑定的时候" class="headerlink" title="v-bind 类名 src等数据绑定的时候"></a>v-bind 类名 src等数据绑定的时候</h3><font size="5">图片的显示</font><br><font color="ff0000">v-bind可以简写为 “:” </font><br><code>javascript
+&lt;div id=&quot;app&quot;&gt;
+    &lt;img v-bind:src=&quot;img&quot;&gt;&lt;/img&gt;
+&lt;/div&gt;
 
-</code></pre>
-<p><img src="./image/$nextTick.JPG" alt="$el"></p>
-<h3 id="mount"><a href="#mount" class="headerlink" title="$mount"></a>$mount</h3><p>挂载方法，在实例化一个vue对象时，可以不用写el。<br>在获取这个对象的时候通过$mount添加</p>
+const vm = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        img:&quot;http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20180314/f15d71681dbf4bcc8b33fe261d3820db.gif&quot;
+    }
+})</code><br><font size="5">类名的添加</font>
+
 <pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span>obj<span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"c"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//el: "#app",</span>
+
+<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
     data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        str<span class="token punctuation">:</span> <span class="token string">"str"</span><span class="token punctuation">,</span>
-        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            a<span class="token punctuation">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
-            b<span class="token punctuation">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
-            c<span class="token punctuation">:</span> <span class="token string">"c"</span>
-        <span class="token punctuation">}</span>
+        c<span class="token punctuation">:</span><span class="token string">"yes"</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<p><img src="./class添加.JPG" alt="Class添加"></p>
+<p>如果有多个类名，需要写在[]里面</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[c1,c2]"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        c1<span class="token punctuation">:</span><span class="token string">"yes"</span><span class="token punctuation">,</span>
+        c2<span class="token punctuation">:</span><span class="token string">"no"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="./多个class.JPG" alt="多个class"></p>
+<p>通过{}进行运算</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> yes是添加的类名，后面的isAdd进行判断是否添加 <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{yes:isAdd}"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        c<span class="token punctuation">:</span><span class="token string">"yes"</span><span class="token punctuation">,</span>
+        isAdd<span class="token punctuation">:</span><span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="./运算.JPG" alt="运算"></p>
+<p><font size="5">style的添加</font><br>如果是添加style里面的一个样式可以这样写：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span>style<span class="token operator">=</span><span class="token string">"{width:500px,height:500px,backgroundColor:bgColor}"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        bgColor<span class="token punctuation">:</span><span class="token string">"yellow"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="./style添加.JPG" alt="style添加"></p>
 
             </div>
             <hr/>
@@ -570,9 +499,9 @@ app<span class="token punctuation">.</span><span class="token function">$mount</
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《VUE基础 笔记》
+                    《VUE指令2》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/29/vue-ji-chu-bi-ji/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/30/vuej-zhi-ling-2/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zz
             </a> is licensed under a
@@ -612,9 +541,62 @@ app<span class="token punctuation">.</span><span class="token function">$mount</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/08/30/vuej-zhi-ling-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="VUE指令2">
+                        
+                        <span class="card-title">VUE指令2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” javascript
+&lt;div id=&quot;app&quot;&gt;
+    &lt;img v-bind:src=&quot;img&quo
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category" target="_blank">
+                                    Markdown
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/VUE基础/" target="_blank">
+                        <span class="chip bg-color">VUE基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/08/29/vue-zhi-ling/">
                     <div class="card-image">
@@ -636,9 +618,9 @@ app<span class="token punctuation">.</span><span class="token function">$mount</
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -656,56 +638,6 @@ app<span class="token punctuation">.</span><span class="token function">$mount</
                     
                     <a href="/tags/VUE指令/" target="_blank">
                         <span class="chip bg-color">VUE指令</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/22/vue-ji-chu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="vue基础">
-                        
-                        <span class="card-title">vue基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            为什么要用vue？  因为vue的性能好，数据视图分离的MVVM框架。
-为什么操作DOM会消耗性能  操作DOM是非常消耗性能的。  DOM是操作XML和HTML文档的接口。  JS和DOM是两种东西，每次连接要消耗性能。操作DOM会导致重
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vue基础-学习笔记/" target="_blank">
-                        <span class="chip bg-color">vue基础 学习笔记</span>
                     </a>
                     
                 </div>
