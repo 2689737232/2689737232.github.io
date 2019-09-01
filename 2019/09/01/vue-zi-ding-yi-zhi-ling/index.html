@@ -4,14 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="VUE指令2, zz的blog">
-    <meta name="description" content="v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
-
+    <meta name="keywords" content="VUE自定义指令, zz的blog">
+    <meta name="description" content="定义全局指令&amp;lt;!-- 全局指令。两个被Vue管理的元素都可以使用slice指令 --&gt;
 &amp;lt;div id=&#34;app&#34;&gt;
-    &amp;lt;img v-bind:src=&#34;img&#34;&gt;&amp;lt;/img&gt;
-&amp;lt;/div&gt;
-
-const vm">
+    &amp;lt;input type=&#34;text&#34; v-slice=&#34;content&#34; v-model=&#34;co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ const vm">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>VUE指令2 | zz的blog</title>
+    <title>VUE自定义指令 | zz的blog</title>
     <link rel="icon" type="image/png" href="/兔子.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -207,13 +203,13 @@ const vm">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        VUE指令2
+                        VUE自定义指令
                     </div>
                 </div>
             </div>
@@ -259,7 +255,7 @@ const vm">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-30
+                    2019-09-01
                 </div>
 
                 
@@ -275,118 +271,84 @@ const vm">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="v-bind-类名-src等数据绑定的时候"><a href="#v-bind-类名-src等数据绑定的时候" class="headerlink" title="v-bind 类名 src等数据绑定的时候"></a>v-bind 类名 src等数据绑定的时候</h3><font size="5">图片的显示</font><br><font color="ff0000">v-bind可以简写为 “:” </font>
-
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>img v<span class="token operator">-</span>bind<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"img"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>img<span class="token operator">></span>
+                <h3 id="定义全局指令"><a href="#定义全局指令" class="headerlink" title="定义全局指令"></a>定义全局指令</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 全局指令。两个被Vue管理的元素都可以使用slice指令 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>slice<span class="token operator">=</span><span class="token string">"content"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"content"</span><span class="token operator">></span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span>content<span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app1"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>slice<span class="token operator">=</span><span class="token string">"content"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"content"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">// 定义全局的指令  第一个参数是指令名字。在使用的时候需要写成 v-指令名字。</span>
+<span class="token comment" spellcheck="true">// 第二个参数是一个对象，里面的是钩子函数。</span>
+Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'slice'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//指令第一次绑定到元素上面时执行</span>
+    <span class="token function">bind</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第一次绑定执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//绑定数据更新时执行</span>
+    <span class="token function">update</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"我更新了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//被插入到父节点中时执行，用于保证父节点存在，不能保证插入文档中</span>
+    <span class="token function">inserted</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"我插入父节点中了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//指令所在组件的 VNode 及其子 VNode 全部更新后调用。</span>
+    <span class="token function">componentUpdated</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//只调用一次，指令与元素解绑时调用。</span>
+    <span class="token function">unbind</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span>bing<span class="token punctuation">,</span>vnode<span class="token punctuation">,</span>onVonde<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
     data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        img<span class="token punctuation">:</span><span class="token string">"http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20180314/f15d71681dbf4bcc8b33fe261d3820db.gif"</span>
+        content<span class="token punctuation">:</span> <span class="token string">"我是content哦"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> vm1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app1"</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        content<span class="token punctuation">:</span> <span class="token string">"那我是content1 ~QWQ~"</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<font size="5">类名的添加</font>
-
+<p>如果只是关心 bind 和 update这两个钩子函数可以简写为这样：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"c"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>slice<span class="token operator">=</span><span class="token string">"content"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app1"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>slice<span class="token operator">=</span><span class="token string">"content1"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
+<span class="token comment" spellcheck="true">//directive这里面的第二个参数是一个函数，是bind 和 update的结合。第一次绑定到元素身上时触发，数据更新时候触发</span>
+Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'slice'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>el<span class="token punctuation">,</span> bindings<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> bindings<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
     data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        c<span class="token punctuation">:</span><span class="token string">"yes"</span>
+        content<span class="token punctuation">:</span> <span class="token string">"我是content哦"</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p><img src="./class添加.JPG" alt="Class添加"></p>
-<p>如果有多个类名，需要写在[]里面</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[c1,c2]"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+<span class="token keyword">const</span> vm1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app1"</span><span class="token punctuation">,</span>
     data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        c1<span class="token punctuation">:</span><span class="token string">"yes"</span><span class="token punctuation">,</span>
-        c2<span class="token punctuation">:</span><span class="token string">"no"</span>
+        content1<span class="token punctuation">:</span> <span class="token string">"那我是content1 ~QWQ~"</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<p><img src="./多个class.JPG" alt="多个class"></p>
-<p>通过{}进行运算</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> yes是添加的类名，后面的isAdd进行判断是否添加 <span class="token operator">--</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{yes:isAdd}"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        c<span class="token punctuation">:</span><span class="token string">"yes"</span><span class="token punctuation">,</span>
-        isAdd<span class="token punctuation">:</span><span class="token boolean">true</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p><img src="./运算.JPG" alt="运算"></p>
-<p><font size="5">style的添加</font><br>如果是添加style里面的一个样式可以这样写：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span>style<span class="token operator">=</span><span class="token string">"{width:'500px',height:'500px',backgroundColor:bgColor}"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        bgColor<span class="token punctuation">:</span><span class="token string">"yellow"</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p><img src="./style添加.JPG" alt="style添加"></p>
-<p>如果有多个style样式</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>需要通过 <span class="token string">"[]"</span> 添加<span class="token operator">--</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token punctuation">:</span>style<span class="token operator">=</span><span class="token string">"[style1,style2]"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        style1<span class="token punctuation">:</span><span class="token punctuation">{</span>width<span class="token punctuation">:</span>500px<span class="token punctuation">,</span>height<span class="token punctuation">:</span>500px<span class="token punctuation">,</span>backgroundColor<span class="token punctuation">:</span>yellow<span class="token punctuation">}</span><span class="token punctuation">,</span>
-        style2<span class="token punctuation">:</span><span class="token punctuation">{</span>width<span class="token punctuation">:</span>100px<span class="token punctuation">,</span>height<span class="token punctuation">:</span>100px<span class="token punctuation">,</span>backgroundColor<span class="token punctuation">:</span>blue<span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p><img src="./多个style样式.JPG" alt="多个style"></p>
-<h3 id="v-on-VUE中事件的绑定"><a href="#v-on-VUE中事件的绑定" class="headerlink" title="v-on VUE中事件的绑定"></a>v-on VUE中事件的绑定</h3><p><font color="ff0000">v-on:可以简写为 “@” </font></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div v<span class="token operator">-</span>on<span class="token punctuation">:</span>click<span class="token operator">=</span><span class="token string">"click"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// data里面也可以写是上这个函数。但是这里面的this指向window</span>
-        <span class="token comment" spellcheck="true">// click(){</span>
-        <span class="token comment" spellcheck="true">//     console.log("yes,我被点击了")</span>
-        <span class="token comment" spellcheck="true">// }</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//事件函数写在里面</span>
-    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//这里面的this指向实例vm</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yes,我被点击了"</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
+<h3 id="钩子函数中的参数"><a href="#钩子函数中的参数" class="headerlink" title="钩子函数中的参数"></a>钩子函数中的参数</h3><p><center><font size="4">钩子函数中的参数有el、bing、vnode、onVonde。</font></center></p>
+<p><font face="幼圆"><br>    el：指令所绑定的元素，可以用来直接操作 DOM 。<br>    binding：一个对象，包含以下属性：<br>    &emsp;name：指令名，不包括 v- 前缀。<br>    &emsp;value：指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2。<br>    &emsp;oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。<br>    &emsp;expression：字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。<br>    &emsp;arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 “foo”。<br>    &emsp;modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。<br>    vnode：Vue 编译生成的虚拟节点。移步 VNode API 来了解更多详情。<br>    oldVnode：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。<br></font><br><img src="./全局指令.JPG" alt="VUE自定义指令"></p>
 
             </div>
             <hr/>
@@ -545,9 +507,9 @@ const vm">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《VUE指令2》
+                    《VUE自定义指令》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/30/vuej-zhi-ling-2/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/01/vue-zi-ding-yi-zhi-ling/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zz
             </a> is licensed under a
@@ -587,9 +549,10 @@ const vm">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/09/01/vue-zi-ding-yi-zhi-ling/">
                     <div class="card-image">
@@ -609,9 +572,9 @@ const vm">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -624,6 +587,7 @@ const vm">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -642,28 +606,30 @@ const vm">
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/29/vue-zhi-ling/">
+                <a href="/2019/08/30/vuej-zhi-ling-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="VUE指令">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="VUE指令2">
                         
-                        <span class="card-title">VUE指令</span>
+                        <span class="card-title">VUE指令2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            v-pre 如果有元素不想被Vue渲染的话，可以加上这个指令&lt;div id="app">
-    &lt;div v-pre>
-        {{a}}   //这里就不会显示yes了，显示{{a}}
-    &lt;/div>
-&
+                            v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
+
+&lt;div id="app">
+    &lt;img v-bind:src="img">&lt;/img>
+&lt;/div>
+
+const vm
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
                             </span>
                         <span class="publish-author">
                             
