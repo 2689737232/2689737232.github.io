@@ -514,35 +514,34 @@ const vm = new Vue({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/">
+                <a href="/2019/09/03/vue-zu-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="VUE的生命周期函数">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VUE组件">
                         
-                        <span class="card-title">VUE的生命周期函数</span>
+                        <span class="card-title">VUE组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VUE实例的生命周期图
-&lt;div id="app">{{yes}}&lt;/div>
-const vm = new Vue({
-    el: "#app",
-    beforeCreate() {
-        //创建前 没有
+                            Vue中组件的使用全局组件的定义
+Vue.component('my-conponet',{
+    data(){
+        data:"我是数据"
+    },
+    template:'&lt;div>{{data}}&lt;
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -555,12 +554,11 @@ const vm = new Vue({
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VUE基础/" target="_blank">
-                        <span class="chip bg-color">VUE基础</span>
+                    <a href="/tags/VUE组件/" target="_blank">
+                        <span class="chip bg-color">VUE组件</span>
                     </a>
                     
                 </div>
