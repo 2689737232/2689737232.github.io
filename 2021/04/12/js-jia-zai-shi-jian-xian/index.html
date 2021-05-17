@@ -4,9 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="vue基础, zz的blog">
-    <meta name="description" content="为什么要用vue？  因为vue的性能好，数据视图分离的MVVM框架。
-为什么操作DOM会消耗性能  操作DOM是非常消耗性能的。  DOM是操作XML和HTML文档的接口。  JS和DOM是两种东西，每次连接要消耗性能。操作DOM会导致重">
+    <meta name="keywords" content="js加载时间线, zz的blog">
+    <meta name="description" content="1.js加载时间线
+参考 https://developer.mozilla.org/zh-CN/docs/Web/API/Document/readyState
+
+
+创建Document对象，开始解析web页面,document仍在加载。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue基础 | zz的blog</title>
+    <title>js加载时间线 | zz的blog</title>
     <link rel="icon" type="image/png" href="/兔子.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -202,13 +205,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vue基础
+                        js加载时间线
                     </div>
                 </div>
             </div>
@@ -218,10 +221,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -230,8 +322,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue基础-学习笔记/" target="_blank">
-                                <span class="chip bg-color">vue基础 学习笔记</span>
+                            <a href="/tags/js基础-线程-学习笔记/" target="_blank">
+                                <span class="chip bg-color">js基础 线程 学习笔记</span>
                             </a>
                         
                     </div>
@@ -239,22 +331,13 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                Markdown
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-22
+                    2021-04-12
                 </div>
 
                 
@@ -270,11 +353,25 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="为什么要用vue？"><a href="#为什么要用vue？" class="headerlink" title="为什么要用vue？"></a>为什么要用vue？</h2><p>  因为vue的性能好，数据视图分离的MVVM框架。</p>
-<h2 id="为什么操作DOM会消耗性能"><a href="#为什么操作DOM会消耗性能" class="headerlink" title="为什么操作DOM会消耗性能"></a>为什么操作DOM会消耗性能</h2><p>  <font face="幼圆" color="FF0000">操作DOM是非常消耗性能的。</font><br><br>  DOM是操作XML和HTML文档的接口。<br>  JS和DOM是两种东西，每次连接要消耗性能。操作DOM会导致重绘和重排。<br>  那重绘和重排</p>
-<h3 id="浏览器的渲染过程"><a href="#浏览器的渲染过程" class="headerlink" title="浏览器的渲染过程"></a>浏览器的渲染过程</h3><p>   每一次请求完HTML CSS  JavaScript 图片等等…<br>   浏览器会先解析HTML形成DOMTree<br>   然后解析CSS形成CSSTree<br>   这个解析过程是是深度优先，<br>   然后合并DOMTree和CSSTree形成renderTree。<br>   根据这个renderTree开始布局、绘制。</p>
-<h3 id="重绘和重排"><a href="#重绘和重排" class="headerlink" title="重绘和重排"></a>重绘和重排</h3><p>   操作DOM，更改了元素的一些属性，宽高…这会影响其他的元素的布局属性。<br>   浏览器会使渲染树中的影响部分失效，重绘渲染树。这个称为重排。<br>   重排后，浏览器会重新绘制受影响的部分到屏幕中。这个称为重绘。</p>
-<h2 id="VUE的性能为什么会更好"><a href="#VUE的性能为什么会更好" class="headerlink" title="VUE的性能为什么会更好"></a>VUE的性能为什么会更好</h2><p>   VUE的核心是操作虚拟DOM(virtual dom或者vdom)，使用这个虚拟DOM会减少对DOM的操作。<br>   是由js模拟的一个虚拟DOM。<br>   模拟出来虚拟DOM以</p>
+                <h3 id="1-js加载时间线"><a href="#1-js加载时间线" class="headerlink" title="1.js加载时间线"></a>1.js加载时间线</h3><blockquote>
+<p>参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/readyState" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Document/readyState</a></p>
+</blockquote>
+<ul>
+<li><p>创建Document对象，开始解析web页面,document仍在加载。这个阶段<font color="red"><code>document.readyState = &quot;loading&quot;</code></font> 。  </p>
+</li>
+<li><p>遇到link外部的css文件，创建新的线程进行加载，并开始解析。 </p>
+</li>
+<li><p>遇到<code>script</code>文件 没有设置 <code>async</code>或<code>defer</code>的js文件会同步加载js文件，会阻塞浏览器对文件的解析。js文件加载完后继续解析文档。<br>遇到的有<code>async</code>或<code>defer</code>浏览器创建新的线程加载文件，入果是<code>async</code>的文件，加载完后就执行；而<code>defer</code>会在文档全部解析完后执行。</p>
+</li>
+<li><p>遇到img先加载dom结构、解析文档，后开启线程去异步加载src资源。</p>
+</li>
+<li><p>文档已被解析，dom元素可以访问。”正在加载”状态结束，如图像，样式表和框架之类的子资源可能仍在加载。 <font color="red"><code>document.readyState = &quot;interactive&quot;</code></font> </p>
+</li>
+<li><p>然后按顺序执行 defer的脚本文件。</p>
+</li>
+<li><p>所有的<code>defer</code>文档都执行完毕（defer中的异步任务不影响）、img加载完毕后， <font color="red"><code>document.readyState = &quot;loaded&quot;</code></font> 。 <code>window</code>触发onload事件。</p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -433,9 +530,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《vue基础》
+                    《js加载时间线》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/22/vue-ji-chu/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/04/12/js-jia-zai-shi-jian-xian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zz
             </a> is licensed under a
@@ -475,52 +572,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/08/29/vue-ji-chu-bi-ji/">
+                <a href="/2021/04/12/js-jia-zai-shi-jian-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="VUE基础 笔记">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="js加载时间线">
                         
-                        <span class="card-title">VUE基础 笔记</span>
+                        <span class="card-title">js加载时间线</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VUE基础  实例方法对对象和数组的渲染时&lt;div id="app">
-    {{arr}}
-&lt;/div>
-var app = new Vue({
-        el: "#app",
-        data: {
-   
+                            1.js加载时间线
+参考 https://developer.mozilla.org/zh-CN/docs/Web/API/Document/readyState
+
+
+创建Document对象，开始解析web页面,document仍在加载。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-12
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            zz
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VUE基础/" target="_blank">
-                        <span class="chip bg-color">VUE基础</span>
+                    <a href="/tags/js基础-线程-学习笔记/" target="_blank">
+                        <span class="chip bg-color">js基础 线程 学习笔记</span>
                     </a>
                     
                 </div>
@@ -534,33 +627,32 @@ var app = new Vue({
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/13/es6-jian-tou-han-shu/">
+                <a href="/2021/04/06/ying-yong-ceng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ES6 箭头函数">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="应用层">
                         
-                        <span class="card-title">ES6 箭头函数</span>
+                        <span class="card-title">应用层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语
+                            1. 进程通信通过跨越计算机网络交换报文，而相互通信。发送进程生成并向网络中发送报文；接收方接收这些报文并尽可能进行回报文响应。
+1.1 客户和服务进程将两个进程之一称为客户(client)，而另一个进程称为服务器(server)。
+
+在一
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ES6/" class="post-category" target="_blank">
-                                    ES6
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            zz
                             
                         </span>
                     </div>
@@ -568,8 +660,8 @@ var app = new Vue({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES6-箭头函数/" target="_blank">
-                        <span class="chip bg-color">ES6 箭头函数</span>
+                    <a href="/tags/计算机网络自顶向下读书笔记/" target="_blank">
+                        <span class="chip bg-color">计算机网络自顶向下读书笔记</span>
                     </a>
                     
                 </div>
@@ -620,6 +712,99 @@ var app = new Vue({
 </script>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
 </main>
