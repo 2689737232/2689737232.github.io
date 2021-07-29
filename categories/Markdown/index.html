@@ -246,11 +246,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/Markdown/" title="Markdown: 10">
+                <a href="/categories/Markdown/" title="Markdown: 11">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">Markdown
-                        <span class="tag-length">10</span>
+                        <span class="tag-length">11</span>
                     </span>
                 </a>
                 
@@ -264,6 +264,45 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/07/29/vue-xiang-ying-shi-yuan-ma-yue-du/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue响应式源码阅读">
+                            
+                            <span class="card-title">vue响应式源码阅读</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                拉取源代码从官方仓库拉取了vue的源码，自己做了一点理解笔记。
+1. 响应式具有响应式的对象，或他的某个属性，发生变化后能够自动运行一些函数。通过Object.definedProerty()函数的get方法中使用Dep实例中的depend
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Markdown/" class="post-category" target="_blank">
+                                    Markdown
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -730,55 +769,33 @@ var app = new Vue({
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/08/08/hexo-server-wu-xiao/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hexo server无效">
-                            
-                            <span class="card-title">hexo server无效</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                hexo博客搭建的坑
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/采坑日记/" target="_blank">
-                            <span class="chip bg-color">采坑日记</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/Markdown/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 <footer class="page-footer bg-color">

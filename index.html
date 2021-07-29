@@ -336,34 +336,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">VUE指令2</div>
-                    <div class="description center-align">
-                    
-                        v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
-
-&lt;div id="app">
-    &lt;img v-bind:src="img">&lt;/img>
-&lt;/div>
-
-const vm
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/08/30/vuej-zhi-ling-2/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>Read more
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/9.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
                     <div class="title center-align">ES6模块化</div>
                     <div class="description center-align">
                     
@@ -417,6 +389,34 @@ var app = new Vue({
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/9.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">VUE指令2</div>
+                    <div class="description center-align">
+                    
+                        v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
+
+&lt;div id="app">
+    &lt;img v-bind:src="img">&lt;/img>
+&lt;/div>
+
+const vm
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/08/30/vuej-zhi-ling-2/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/2.jpg');">
         <div class="container">
             <div class="row">
@@ -433,33 +433,6 @@ var app = new Vue({
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/08/29/vue-zhi-ling/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>Read more
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/4.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">VUE的生命周期函数</div>
-                    <div class="description center-align">
-                    
-                        VUE实例的生命周期图
-&lt;div id="app">{{yes}}&lt;/div>
-const vm = new Vue({
-    el: "#app",
-    beforeCreate() {
-        //创建前 没有
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>Read more
                         </a>
                     </div>
@@ -497,6 +470,35 @@ Vue.component('yes-com', {
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/1.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">VUE组件子组件传值给父组件</div>
+                    <div class="description center-align">
+                    
+                        子组件向父组件通信、传递数据通过$children
+
+
+&lt;div id="app">
+    &lt;yes>&lt;/yes>
+&lt;/div>
+    const vm = new Vue({
+        el: "#app
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/0.jpg');">
         <div class="container">
             <div class="row">
@@ -519,25 +521,23 @@ Vue.component('yes-com', {
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/1.jpg');">
+            style="background-image: url('/medias/featureimages/4.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">VUE组件子组件传值给父组件</div>
+                    <div class="title center-align">VUE的生命周期函数</div>
                     <div class="description center-align">
                     
-                        子组件向父组件通信、传递数据通过$children
-
-
-&lt;div id="app">
-    &lt;yes>&lt;/yes>
-&lt;/div>
-    const vm = new Vue({
-        el: "#app
+                        VUE实例的生命周期图
+&lt;div id="app">{{yes}}&lt;/div>
+const vm = new Vue({
+    el: "#app",
+    beforeCreate() {
+        //创建前 没有
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>Read more
                         </a>
                     </div>
@@ -602,6 +602,29 @@ ObjectJavaScript不区分整型和浮点型
     </div>
     
     
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/16.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">vue响应式源码阅读</div>
+                    <div class="description center-align">
+                    
+                        拉取源代码从官方仓库拉取了vue的源码，自己做了一点理解笔记。
+1. 响应式具有响应式的对象，或他的某个属性，发生变化后能够自动运行一些函数。通过Object.definedProerty()函数的get方法中使用Dep实例中的depend
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2021/07/29/vue-xiang-ying-shi-yuan-ma-yue-du/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 </div>
 
 <script>
@@ -622,6 +645,7 @@ $(function () {
         }, 5000);
     };
     autoCarousel();
+    
     
 
     let restartPlay = function () {
@@ -686,7 +710,7 @@ $(function () {
 
     
     
-    <div class="col s12" >
+    <div class="col s12 m6" >
         <div class="post-card" style="background-image: url('/medias/featureimages/3.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -697,9 +721,70 @@ $(function () {
                 <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank">
                     <h3 class="post-title">ES6 箭头函数</h3>
                 </a>
-                <p class="post-description">ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 Ja</p>
+                <p class="post-description">
+                    
+                        ES6箭头函数 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式
+                    
+                </p>
                 <a href="/2019/08/13/es6-jian-tou-han-shu/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/9.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
+                    
+                </div>
+                <a href="/2020/09/07/es6-mo-kuai-hua/" target="_blank">
+                    <h3 class="post-title">ES6模块化</h3>
+                </a>
+                <p class="post-description">
+                    
+                        浏览器环境中的导入导出
+需要开启liveserver，不然会有跨域问题。
+
+需要将type类型指定为module
+&lt;script sr
+                    
+                </p>
+                <a href="/2020/09/07/es6-mo-kuai-hua/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/13.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
+                    
+                </div>
+                <a href="/2019/08/29/vue-ji-chu-bi-ji/" target="_blank">
+                    <h3 class="post-title">VUE基础 笔记</h3>
+                </a>
+                <p class="post-description">
+                    
+                        VUE基础  实例方法对对象和数组的渲染时&lt;div id="app">
+    {{arr}}
+&lt;/div>
+var app =
+                    
+                </p>
+                <a href="/2019/08/29/vue-ji-chu-bi-ji/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
             </div>
@@ -718,61 +803,15 @@ $(function () {
                 <a href="/2019/08/30/vuej-zhi-ling-2/" target="_blank">
                     <h3 class="post-title">VUE指令2</h3>
                 </a>
-                <p class="post-description">v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
+                <p class="post-description">
+                    
+                        v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
 
 &lt;div id="app">
-    &lt;</p>
+    &lt;
+                    
+                </p>
                 <a href="/2019/08/30/vuej-zhi-ling-2/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/9.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
-                    
-                </div>
-                <a href="/2020/09/07/es6-mo-kuai-hua/" target="_blank">
-                    <h3 class="post-title">ES6模块化</h3>
-                </a>
-                <p class="post-description">浏览器环境中的导入导出
-需要开启liveserver，不然会有跨域问题。
-
-需要将type类型指定为module
-&lt;script sr</p>
-                <a href="/2020/09/07/es6-mo-kuai-hua/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/13.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
-                    
-                </div>
-                <a href="/2019/08/29/vue-ji-chu-bi-ji/" target="_blank">
-                    <h3 class="post-title">VUE基础 笔记</h3>
-                </a>
-                <p class="post-description">VUE基础  实例方法对对象和数组的渲染时&lt;div id="app">
-    {{arr}}
-&lt;/div>
-var app = new Vue({
-    </p>
-                <a href="/2019/08/29/vue-ji-chu-bi-ji/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
@@ -792,9 +831,13 @@ var app = new Vue({
                 <a href="/2019/08/29/vue-zhi-ling/" target="_blank">
                     <h3 class="post-title">VUE指令</h3>
                 </a>
-                <p class="post-description">v-pre 如果有元素不想被Vue渲染的话，可以加上这个指令&lt;div id="app">
+                <p class="post-description">
+                    
+                        v-pre 如果有元素不想被Vue渲染的话，可以加上这个指令&lt;div id="app">
     &lt;div v-pre>
-   </p>
+   
+                    
+                </p>
                 <a href="/2019/08/29/vue-zhi-ling/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
@@ -805,30 +848,6 @@ var app = new Vue({
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
-                    
-                </div>
-                <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" target="_blank">
-                    <h3 class="post-title">VUE的生命周期函数</h3>
-                </a>
-                <p class="post-description">VUE实例的生命周期图
-&lt;div id="app">{{yes}}&lt;/div>
-const vm = new Vue({
-   </p>
-                <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #C644FC 0%, #5856D6 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/1.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -839,12 +858,45 @@ const vm = new Vue({
                 <a href="/2019/09/03/vue-zu-jian/" target="_blank">
                     <h3 class="post-title">VUE组件</h3>
                 </a>
-                <p class="post-description">Vue中组件的使用全局组件的定义
+                <p class="post-description">
+                    
+                        Vue中组件的使用全局组件的定义
 &lt;div id="app">
     &lt;yes-com>&lt;/yes-com>
-&lt;/div>
-Vue.compon</p>
+&lt;/
+                    
+                </p>
                 <a href="/2019/09/03/vue-zu-jian/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #C644FC 0%, #5856D6 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/1.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
+                    
+                </div>
+                <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" target="_blank">
+                    <h3 class="post-title">VUE组件子组件传值给父组件</h3>
+                </a>
+                <p class="post-description">
+                    
+                        子组件向父组件通信、传递数据通过$children
+
+
+&lt;div id="app">
+    &lt;yes>&lt;/yes>
+&l
+                    
+                </p>
+                <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #55EFCB 0%, #5BCAFF 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
@@ -864,7 +916,11 @@ Vue.compon</p>
                 <a href="/2019/08/08/hexo-server-wu-xiao/" target="_blank">
                     <h3 class="post-title">hexo server无效</h3>
                 </a>
-                <p class="post-description">hexo博客搭建的坑</p>
+                <p class="post-description">
+                    
+                        hexo博客搭建的坑
+                    
+                </p>
                 <a href="/2019/08/08/hexo-server-wu-xiao/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
@@ -875,23 +931,25 @@ Vue.compon</p>
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/1.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
                     <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
                     
                 </div>
-                <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" target="_blank">
-                    <h3 class="post-title">VUE组件子组件传值给父组件</h3>
+                <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" target="_blank">
+                    <h3 class="post-title">VUE的生命周期函数</h3>
                 </a>
-                <p class="post-description">子组件向父组件通信、传递数据通过$children
-
-
-&lt;div id="app">
-    &lt;yes>&lt;/yes>
-&l</p>
-                <a href="/2019/09/04/vue-zu-jian-zi-zu-jian-chuan-zhi-gei-fu-zu-jian/" target="_blank"
+                <p class="post-description">
+                    
+                        VUE实例的生命周期图
+&lt;div id="app">{{yes}}&lt;/div>
+const vm = new Vue({
+   
+                    
+                </p>
+                <a href="/2019/09/02/vue-de-sheng-ming-zhou-qi-han-shu/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
@@ -900,7 +958,7 @@ Vue.compon</p>
     </div>
     
     
-    <div class="col s12" data-aos="zoom-in-up">
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/0.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -911,9 +969,13 @@ Vue.compon</p>
                 <a href="/2019/09/01/vue-zi-ding-yi-zhi-ling/" target="_blank">
                     <h3 class="post-title">VUE自定义指令</h3>
                 </a>
-                <p class="post-description">定义全局指令&lt;!-- 全局指令。两个被Vue管理的元素都可以使用slice指令 -->
+                <p class="post-description">
+                    
+                        定义全局指令&lt;!-- 全局指令。两个被Vue管理的元素都可以使用slice指令 -->
 &lt;div id="app">
-    &lt;input type="</p>
+    &
+                    
+                </p>
                 <a href="/2019/09/01/vue-zi-ding-yi-zhi-ling/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
@@ -934,16 +996,46 @@ Vue.compon</p>
                 <a href="/2020/06/23/js-quan-wei-zhi-nan-bi-ji/" target="_blank">
                     <h3 class="post-title">JavaScript 权威指南笔记 类型、运算符</h3>
                 </a>
-                <p class="post-description">前四章1. js的六大数据类型基本数据类型：  
+                <p class="post-description">
+                    
+                        前四章1. js的六大数据类型基本数据类型：  
 
 Number
 String
 Boolean  
 Undefinde
 Null
-Objec</p>
+Objec
+                    
+                </p>
                 <a href="/2020/06/23/js-quan-wei-zhi-nan-bi-ji/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/16.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/Markdown/" class="category" target="_blank">Markdown</a>
+                    
+                </div>
+                <a href="/2021/07/29/vue-xiang-ying-shi-yuan-ma-yue-du/" target="_blank">
+                    <h3 class="post-title">vue响应式源码阅读</h3>
+                </a>
+                <p class="post-description">
+                    
+                        拉取源代码从官方仓库拉取了vue的源码，自己做了一点理解笔记。
+1. 响应式具有响应式的对象，或他的某个属性，发生变化后能够自动运行一些函数
+                    
+                </p>
+                <a href="/2021/07/29/vue-xiang-ying-shi-yuan-ma-yue-du/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>Read more
                 </a>
             </div>
@@ -966,6 +1058,46 @@ Objec</p>
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/07/29/vue-xiang-ying-shi-yuan-ma-yue-du/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue响应式源码阅读">
+                            
+                            <span class="card-title">vue响应式源码阅读</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                拉取源代码从官方仓库拉取了vue的源码，自己做了一点理解笔记。
+1. 响应式具有响应式的对象，或他的某个属性，发生变化后能够自动运行一些函数。通过Object.definedProerty()函数的get方法中使用Dep实例中的depend
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Markdown/" class="post-category" target="_blank">
+                                    Markdown
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1396,59 +1528,6 @@ const vm = new Vue({
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/VUE指令/" target="_blank">
-                            <span class="chip bg-color">VUE指令</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/08/30/vuej-zhi-ling-2/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="VUE指令2">
-                            
-                            <span class="card-title">VUE指令2</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                v-bind 类名 src等数据绑定的时候图片的显示v-bind可以简写为 “:” 
-
-&lt;div id="app">
-    &lt;img v-bind:src="img">&lt;/img>
-&lt;/div>
-
-const vm
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
                             </span>
                             <span class="publish-author">
                                 
